@@ -1,0 +1,13 @@
+{
+    "dependencies": {
+        "montage": "*",
+        "digit": "*"
+    },
+    "devDependencies": {
+        "opener": "*",
+        "joey": "*"
+    },
+    "scripts": {
+        "demo": "npm install && node demo.js"
+    }
+}

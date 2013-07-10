@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/montage-serialization">
+            {
+                "owner": {
+                    "prototype": "ui/main.reel",
+                    "properties": {
+                        "element": {"#": "owner"}
+                    }
+                },
+                "repetition": {
+                    "prototype": "montage/ui/repetition.reel",
+                    "properties": {
+                        "content": [],
+                        "element": {"#": "repetition"}
+                    }
+                },
+                "label": {
+                    "prototype": "digit/ui/text-field.reel",
+                    "properties": {
+                        "element": {"#": "label"}
+                    },
+                    "bindings": {
+                        "value": {
+                            "<->": "@repetition.currentIteration.content.label ?? ''"
+                        }
+                    }
+                },
+                "addButton": {
+                    "prototype": "digit/ui/button.reel",
+                    "properties": {
+                        "repetition": {"@": "repetition"},
+                        "element": {"#": "addButton"}
+                    },
+                    "bindings": {
+                        "index": {
+                            "<-": "@repetition.currentIteration.index"
+                        }
+                    },
+                    "listeners": [
+                        {
+                            "type": "action",
+                            "listener": {"@": "owner"}
+                        }
+                    ]
+                },
+                "removeButton": {
+                    "prototype": "digit/ui/button.reel",
+                    "properties": {
+                        "repetition": {"@": "repetition"},
+                        "element": {"#": "removeButton"}
+                    },
+                    "bindings": {
+                        "index": {
+                            "<-": "@repetition.currentIteration.index"
+                        }
+                    },
+                    "listeners": [
+                        {
+                            "type": "action",
+                            "listener": {"@": "owner"}
+                        }
+                    ]
+                },
+                "addFirstButton": {
+                    "prototype": "digit/ui/button.reel",
+                    "properties": {
+                        "repetition": {"@": "repetition"},
+                        "element": {"#": "addFirstButton"}
+                    },
+                    "listeners": [
+                        {
+                            "type": "action",
+                            "listener": {"@": "owner"}
+                        }
+                    ]
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-montage-id="owner">
+            <button data-montage-id="addFirstButton">+</button>
+            <ul data-montage-id="repetition">
+                <li>
+                    <input data-montage-id="label">
+                    <button data-montage-id="addButton">+</button>
+                    <button data-montage-id="removeButton">-</button>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
